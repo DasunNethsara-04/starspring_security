@@ -1,10 +1,10 @@
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
 
 [project]
 name = "starspring-security"
-version = "0.1.0"
+version = "0.1.1"
 description = "Standalone password hashing utilities for any Python web framework"
 readme = "README.md"
 license = "MIT"
@@ -60,5 +60,17 @@ Homepage      = "https://github.com/DasunNethsara-04/starspring-security"
 Repository    = "https://github.com/DasunNethsara-04/starspring-security"
 Issues        = "https://github.com/DasunNethsara-04/starspring-security/issues"
 
-[tool.hatch.build.targets.wheel]
-packages = ["starspring_security"]
+[tool.pdm.build]
+package-dir = "."
+includes = ["starspring_security/"]
+excludes = [
+    "tests/",
+    ".venv/",
+    ".pytest_cache/",
+    ".mypy_cache/",
+    ".ruff_cache/",
+    "uv.lock",
+    ".gitignore",
+    ".pdmignore",
+]
+
