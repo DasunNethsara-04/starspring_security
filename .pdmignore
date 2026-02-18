@@ -1,0 +1,12 @@
+# Exclude development and test files from the built package
+tests/
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+__pycache__/
+*.pyc
+*.pyo
+dist/
+build/
+*.egg-info/
