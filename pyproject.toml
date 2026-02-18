@@ -1,0 +1,64 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "starspring-security"
+version = "0.1.0"
+description = "Standalone password hashing utilities for any Python web framework"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+authors = [
+    { name = "Dasun Nethsara", email = "techsaralk.pro@gmail.com" },
+]
+keywords = [
+    "password",
+    "hashing",
+    "bcrypt",
+    "argon2",
+    "security",
+    "authentication",
+    "starspring",
+]
+classifiers = [
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Security",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Development Status :: 3 - Alpha",
+]
+# Zero required dependencies — users install what they need
+dependencies = []
+
+[project.optional-dependencies]
+bcrypt  = ["bcrypt>=4.0.0"]
+argon2  = ["argon2-cffi>=21.3.0"]
+all     = ["bcrypt>=4.0.0", "argon2-cffi>=21.3.0"]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+    "bcrypt>=4.0.0",
+    "argon2-cffi>=21.3.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+
+[project.urls]
+Homepage      = "https://github.com/DasunNethsara-04/starspring-security"
+Repository    = "https://github.com/DasunNethsara-04/starspring-security"
+Issues        = "https://github.com/DasunNethsara-04/starspring-security/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["starspring_security"]
